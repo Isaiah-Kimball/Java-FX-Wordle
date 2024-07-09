@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <ImageView fitHeight="663.0" fitWidth="867.0" opacity="0.77" pickOnBounds="true">
+         <image>
+            <Image url="@../../General%20Images/black.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Restart" layoutX="764.0" layoutY="185.0" mnemonicParsing="false" onAction="#restart_game" text="Restart" />
+      <GridPane fx:id="board" alignment="CENTER" layoutX="171.0" layoutY="116.0" prefHeight="274.0" prefWidth="493.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <Label alignment="CENTER" layoutX="131.0" layoutY="-8.0" prefHeight="62.0" prefWidth="605.0" text="WELCOME TO WORDLE!" textAlignment="CENTER" textFill="#fffcfc" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="warning" layoutX="61.0" layoutY="68.0" prefHeight="62.0" prefWidth="745.0" textFill="WHITE" />
+      <Button fx:id="Q_key" graphicTextGap="0.0" layoutX="99.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/q.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="W_key" graphicTextGap="0.0" layoutX="167.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/w.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="E_key" graphicTextGap="0.0" layoutX="235.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/e.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="R_key" graphicTextGap="0.0" layoutX="303.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/r.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="T_key" graphicTextGap="0.0" layoutX="371.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/t.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Y_key" graphicTextGap="0.0" layoutX="439.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/y.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="U_key" graphicTextGap="0.0" layoutX="507.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/u.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="I_key" graphicTextGap="0.0" layoutX="575.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/i.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="O_key" graphicTextGap="0.0" layoutX="643.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/o.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="P_key" graphicTextGap="0.0" layoutX="711.0" layoutY="416.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/p.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="A_key" graphicTextGap="0.0" layoutX="134.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/a.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="S_key" graphicTextGap="0.0" layoutX="201.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/s.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="D_key" graphicTextGap="0.0" layoutX="268.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/d.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="F_key" graphicTextGap="0.0" layoutX="335.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/f.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="G_key" graphicTextGap="0.0" layoutX="402.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/g.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="H_key" graphicTextGap="0.0" layoutX="469.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/h.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="J_key" graphicTextGap="0.0" layoutX="536.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/j.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="K_key" graphicTextGap="0.0" layoutX="603.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/k.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="enter_key" graphicTextGap="0.0" layoutX="109.0" layoutY="581.0" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/enter.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Z_key" graphicTextGap="0.0" layoutX="201.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/z.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="X_key" graphicTextGap="0.0" layoutX="268.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/x.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="C_key" graphicTextGap="0.0" layoutX="335.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/c.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="V_key" graphicTextGap="0.0" layoutX="402.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/v.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="B_key" graphicTextGap="0.0" layoutX="469.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/b.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="N_key" graphicTextGap="0.0" layoutX="536.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/n.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="M_key" graphicTextGap="0.0" layoutX="603.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/m.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="backspace_key" graphicTextGap="0.0" layoutX="670.0" layoutY="581.0" mnemonicParsing="false" onAction="#key_input" prefHeight="82.0" prefWidth="11.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/backspace.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="L_key" graphicTextGap="0.0" layoutX="670.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#key_input" prefHeight="82.4" prefWidth="68.0" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Letter%20Images/l.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="go_to_stats_screen_button" layoutX="737.0" layoutY="137.0" mnemonicParsing="false" onAction="#go_to_stats_screen" text="Go to Stats Screen" />
+      <Button fx:id="exit_game" layoutX="756.0" layoutY="332.0" mnemonicParsing="false" onAction="#exit" text="Exit Game" />
+      <Button fx:id="save_game" layoutX="753.0" layoutY="224.0" mnemonicParsing="false" onAction="#save_board_and_stats_file" text="Save Game" />
+      <Button fx:id="load_game" layoutX="752.0" layoutY="278.0" mnemonicParsing="false" onAction="#load_game" text="Load Game" />
+      <Label layoutX="4.0" prefHeight="105.0" prefWidth="190.0" text="Click on key buttons to input word, press backspace to delete previous letter, press enter to enter word" textFill="WHITE" wrapText="true" />
+      <ImageView fitHeight="34.0" fitWidth="53.0" layoutX="34.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../General%20Images/green.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="53.0" layoutX="41.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../General%20Images/orange.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="53.0" layoutX="31.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../General%20Images/red.png" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="179.0" prefHeight="62.0" prefWidth="126.0" text="Green if in word and correct position" textFill="WHITE" wrapText="true" />
+      <Label alignment="TOP_LEFT" layoutX="11.0" layoutY="282.0" prefHeight="47.0" prefWidth="114.0" text="Orange if in word but incorrect position" textFill="WHITE" wrapText="true" />
+      <Label alignment="TOP_LEFT" layoutX="11.0" layoutY="373.0" text="Red if not in word" textFill="WHITE" />
+   </children>
+</AnchorPane>
