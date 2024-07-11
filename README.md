@@ -1,7 +1,7 @@
 # Java-FX-Wordle
 The following project was a final project for my Java course in which we incorporated Java, JavaFX, FXML, XML, and SceneBuilder to build the game Wordle.
 
-The assignment stated to essentially recreate the rules of Wordle one-to-one, though styling and the layout was up to us
+The assignment stated to essentially recreate the rules of Wordle one-to-one, though styling and the layout was up to us, I was able to get a 100 for this project and decided to add more pieces to it. Some things that I added that were not required by the project was key inputs from the keyboard instead of just the buttons, some minor tweaks to design, and viewport modifications.
 
 To run this program requires JavaFX installation, this was made with Version 22 of JavaFX, though other versions may work just fine so long as they are at least 13 and above. If you have issues trying to run it, it more than likely is an environment setup issue. Try this video for setting it up properly on Eclipse: https://www.youtube.com/watch?v=nz8P528uGjk . Try this video for setting it up on VSCode: https://www.youtube.com/watch?v=AubJaosfI-0
 
