@@ -328,6 +328,7 @@ public class SampleController {
 		loadSavedBoardState(instance);
 	}
 	
+	// Used for disabling opacity for keys
 	public void add_buttons()
 	{
 		buttons_to_disable.put("A", A_key);
@@ -357,156 +358,63 @@ public class SampleController {
 		buttons_to_disable.put("Y", Y_key);
 		buttons_to_disable.put("Z", Z_key);
 	}
+	// Used for making sure space or enter does not activate any keys
+	public void addEnterKeyFilter(Node node) {
+        if (node != null) {
+            node.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+                if (event.getCode() == KeyCode.SPACE) {
+                    event.consume();
+                }
+                else if (event.getCode() == KeyCode.ENTER)
+                {
+                	try {
+						outfile2.write("Key pressed: Enter \n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+                    try {
+						key_pressed(null, "enter_key");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+                    event.consume();
+                }
+            });
+        }
+    }
+	// Applies the filter to all buttons
 	public void filter() {
-	if (Restart != null){
-		Restart.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-		A_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume(); 
-            }
-        });
-B_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-C_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-D_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-E_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-F_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-G_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-H_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-I_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-J_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-K_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-L_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-M_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-N_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-O_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-P_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-Q_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-R_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-S_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-T_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-U_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-V_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-W_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-X_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-Y_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-Z_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                event.consume();
-            }
-        });
-backspace_key.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-    if (event.getCode() == KeyCode.ENTER) {
-        event.consume();
-    }
-});
-
-save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-    if (event.getCode() == KeyCode.ENTER) {
-        event.consume();
-    }
-});
+		addEnterKeyFilter(Restart);
+        addEnterKeyFilter(A_key);
+        addEnterKeyFilter(B_key);
+        addEnterKeyFilter(C_key);
+        addEnterKeyFilter(D_key);
+        addEnterKeyFilter(E_key);
+        addEnterKeyFilter(F_key);
+        addEnterKeyFilter(G_key);
+        addEnterKeyFilter(H_key);
+        addEnterKeyFilter(I_key);
+        addEnterKeyFilter(J_key);
+        addEnterKeyFilter(K_key);
+        addEnterKeyFilter(L_key);
+        addEnterKeyFilter(M_key);
+        addEnterKeyFilter(N_key);
+        addEnterKeyFilter(O_key);
+        addEnterKeyFilter(P_key);
+        addEnterKeyFilter(Q_key);
+        addEnterKeyFilter(R_key);
+        addEnterKeyFilter(S_key);
+        addEnterKeyFilter(T_key);
+        addEnterKeyFilter(U_key);
+        addEnterKeyFilter(V_key);
+        addEnterKeyFilter(W_key);
+        addEnterKeyFilter(X_key);
+        addEnterKeyFilter(Y_key);
+        addEnterKeyFilter(Z_key);
+        addEnterKeyFilter(backspace_key);
+        addEnterKeyFilter(save_game);
 	}
-	}
+	
 	// think of as the Controller's constructor
     public void initialize() throws IOException 
     {
@@ -539,7 +447,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 	    	SelectWord object = new SelectWord();
 	    	object.generate_word_list();
 	    	word_to_guess = object.generate_random_word();
-	    	//System.out.println(word_to_guess);
 	    	init = true;
 	    }
     }
@@ -554,7 +461,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
         playController.disable_buttons();
         curr_stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         curr_scene = new Scene(root);
-        //curr_scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         curr_stage.setScene(curr_scene);
         curr_stage.setResizable(false);
         curr_stage.show();
@@ -576,7 +482,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
         curr_stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         curr_scene = new Scene(root);
         curr_stage.setScene(curr_scene);
-        //curr_scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         curr_stage.setResizable(false);
         curr_stage.show();
     }
@@ -608,17 +513,16 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
     }
     
     // Loading the stats board
-    public void go_to_stats_screen(ActionEvent e) throws IOException {
+    public void go_to_stats_screen() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("stats_screen.fxml"));
         Parent root = loader.load();
         SampleController statsController = loader.getController();
         statsController.update_stats_board(num_games_played, games_won, curr_streak, max_streak, num_guesses);
         stat_instance = board;
         load_board = true;
-        curr_stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         curr_scene = new Scene(root);
-        curr_stage.setScene(curr_scene);
-        curr_stage.show();
+        Main.getPrimaryStage().setScene(curr_scene);
+        Main.getPrimaryStage().show();
     }
 
     // This is the function that figures out how and what stats to display and also how to change the barChart
@@ -696,92 +600,24 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
     // This handles when the keyboard on the computer is pressed and not whenever the buttons are clicked on
 	public void keyboard_input(KeyEvent e) throws IOException {
 		KeyCode key = e.getCode();
-		//System.out.println(e);
-		switch(key) {
-			case A: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "A");
-	    	break;
-			case B: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "B");
-	    	break;
-			case C: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "C");
-	    	break;
-			case D: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "D");
-	    	break;
-			case E: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "E");
-	    	break;
-			case F: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "F");
-	    	break;
-			case G: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "G");
-	    	break;
-			case H: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "H");
-	    	break;
-			case I: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "I");
-	    	break;
-			case J: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "J");
-	    	break;
-			case K: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "K");
-	    	break;
-			case L: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "L");
-	    	break;
-			case M: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "M");
-	    	break;
-			case N: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "N");
-	    	break;
-			case O: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "O");
-	    	break;
-			case P: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "P");
-	    	break;
-			case Q: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "Q");
-	    	break;
-			case R: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "R");
-	    	break;
-			case S: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "S");
-	    	break;
-			case T: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "T");
-	    	break;
-			case U: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "U");
-	    	break;
-			case V: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "V");
-	    	break;
-			case W: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "W");
-	    	break;
-			case X: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "X");
-	    	break;
-			case Y: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "Y");
-	    	break;
-			case Z: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "Z");
-	    	break;
-			case BACK_SPACE: outfile2.write("Key pressed: " + key + "\n");
-	    	key_pressed(null, "backspace_key");
-	    	break;
-		default:
-			break;
-		}
+		if (key.isLetterKey()) {
+            String keyText = key.getName();
+            outfile2.write("Key pressed: " + key + "\n");
+            key_pressed(null, keyText);
+        } else {
+            switch (key) {
+                case BACK_SPACE:
+                    outfile2.write("Key pressed: " + key + "\n");
+                    key_pressed(null, "backspace_key");
+                    break;
+                case ENTER:
+                    outfile2.write("Key pressed: " + key + "\n");
+                    key_pressed(null, "enter_key");
+                    break;
+                default:
+                    break;
+            }
+        }
 		
 	}
 	// This handles all keyboard presses by translating what was actually pressed into another function, this is basically a helper function
@@ -861,7 +697,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 			board_col--;
 			color_col--;
 			GridPane_index--;
-			//System.out.println("GridPane_index: " + GridPane_index);
 		}
 		else
 		{
@@ -878,7 +713,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 	    	GridPane_index++;
 	    	board_col++;
 	    	color_col++;
-	    	//System.out.println("GridPane_index: " + GridPane_index);
 		}
 	}
 	
@@ -888,7 +722,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 		for (String button_id : buttons_disabled)
 		{
 			Button button_to_disable = buttons_to_disable.get(button_id.substring(0,1));
-			//button_to_disable.setDisable(true);
 			button_to_disable.setOpacity(0.5);
 		}
 	}
@@ -964,7 +797,6 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 	    		if (color_per_index.get(color_row).get(index).equals("red") && !word_to_guess.contains(board_array.get(board_row).get(index).toLowerCase()))
 	    		{
 	    			Button disable_button = buttons_to_disable.get(board_array.get(board_row).get(index));
-	    			//disable_button.setDisable(true);
 	    			disable_button.setOpacity(0.5);
 	    			if (!buttons_disabled.contains(disable_button.getId()))
 	    			{
@@ -989,7 +821,7 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
     		{
     			max_streak = curr_streak;
     		}
-    		go_to_stats_screen(e);
+    		go_to_stats_screen();
     		return;
     	}
     	// Means the player lost but completed the game
@@ -997,7 +829,7 @@ save_game.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
     	{
     		num_games_played++;
     		curr_streak = 0;
-    		go_to_stats_screen(e);
+    		go_to_stats_screen();
     	}
 	}
 }
