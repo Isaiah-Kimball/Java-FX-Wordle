@@ -7,6 +7,8 @@ To run this program requires JavaFX installation, this was made with Version 22 
 
 If you're still unable to properly run the program after setting up, or you just simply want to see what it looks like, I have provided some images in the folder named: Game Images
 
+You'll also notice that the majority of the code is in one java file. This was due to issues on my end with the Eclipse IDE in the initial development of this project; thus, I settled by putting it all in one folder for the most part as passing some FXML elements across java files created issues.
+
 # How it Works
 If you are unfamilar with Wordle, it would be best to look up the rules as they are the same here
 
